@@ -1,0 +1,9 @@
+D:\c sharp\word_concatenation\word_concatenation\bin\Debug\word_concatenation.exe.config
+D:\c sharp\word_concatenation\word_concatenation\bin\Debug\word_concatenation.exe
+D:\c sharp\word_concatenation\word_concatenation\bin\Debug\word_concatenation.pdb
+D:\c sharp\word_concatenation\word_concatenation\obj\Debug\word_concatenation.csprojResolveAssemblyReference.cache
+D:\c sharp\word_concatenation\word_concatenation\obj\Debug\word_concatenation.Form1.resources
+D:\c sharp\word_concatenation\word_concatenation\obj\Debug\word_concatenation.Properties.Resources.resources
+D:\c sharp\word_concatenation\word_concatenation\obj\Debug\word_concatenation.csproj.GenerateResource.Cache
+D:\c sharp\word_concatenation\word_concatenation\obj\Debug\word_concatenation.exe
+D:\c sharp\word_concatenation\word_concatenation\obj\Debug\word_concatenation.pdb
