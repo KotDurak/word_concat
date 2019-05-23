@@ -21,63 +21,82 @@ namespace word_concatenation
 
         private void addRowButton_Click(object sender, EventArgs e)
         {
-            dataGridView1.Columns["name"].DisplayIndex = 2;
+            var column = new DataGridViewColumn();
+            column.HeaderText = "Синонимы 2";
+            column.Name = "synonyms2";
+            column.CellTemplate = new DataGridViewTextBoxCell();
+            column.DisplayIndex = 2;
+            dataGridView1.Columns.Add(column);
         }
 
         private void deleteRowButton_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var column1 = new DataGridViewColumn();
-            column1.HeaderText = "Test";
-            column1.Width = 100;
-            column1.ReadOnly = true;
-            column1.Name = "name";
-            column1.Frozen = false;
-            column1.CellTemplate = new DataGridViewTextBoxCell();
-          
+             var column1 = new DataGridViewColumn();
+             column1.HeaderText = "№ (0)";
+             column1.Width = 50;
+             column1.ReadOnly = true;
+             column1.Name = "number";
+             column1.Frozen = false;
+             column1.CellTemplate = new DataGridViewTextBoxCell();
+          //   column1.DisplayIndex = 0;
 
-            var column2 = new DataGridViewColumn();
-            column2.HeaderText = "Price";
-            column2.Name = "price";
-            column2.CellTemplate = new DataGridViewTextBoxCell();
-            
+             var column2 = new DataGridViewColumn();
+             column2.HeaderText = "Синонимы (1)";
+             column2.Name = "synonyms";
+             column2.CellTemplate = new DataGridViewTextBoxCell();
+           //  column2.DisplayIndex = 50;
+             column1.Frozen = false;
+
             var column3 = new DataGridViewColumn();
-            column3.HeaderText = "Remainder";
-            column3.Name = "count";
-            column3.CellTemplate = new DataGridViewTextBoxCell();
-         
-            dataGridView1.Columns.Add(column1);
-            dataGridView1.Columns.Add(column2);
-            dataGridView1.Columns.Add(column3);
+             column3.HeaderText = "Итог(2)";
+             column3.Name = "total";
+             column3.CellTemplate = new DataGridViewTextBoxCell();
+           //  column3.DisplayIndex = 100;
+             column1.Frozen = false;
 
-            dataGridView1.AllowUserToAddRows = false;
+             dataGridView1.AllowUserToAddRows = false;
+             dataGridView1.Columns.Add(column1);
+             dataGridView1.Columns.Add(column2);
+             dataGridView1.Columns.Add(column3);
 
-            for (int i = 0; i < 5; ++i)
+             for (int i = 0; i < 5; ++i)
+             {
+                 //Добавляем строку, указывая значения колонок поочереди слева направо
+              //    dataGridView1.Rows.Add("Example 1, Good " + i, i * 1000, i);
+             }
+
+            
+
+          
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+          //  dataGridView1.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if(e.ColumnIndex == 0)
             {
-                //Добавляем строку, указывая значения колонок поочереди слева направо
-                dataGridView1.Rows.Add("Example 1, Good " + i, i * 1000, i);
+                e.Value = e.RowIndex;
             }
+        }
 
-            for(int i = 0; i < 5; ++i)
+        private void importInSynonyms_Click(object sender, EventArgs e)
+        {
+            if (paste.Checked)
             {
-                //Добавляем строку, указывая значения каждой ячейки по имени (можно использовать индекс 0, 1, 2 вместо имен)
-                dataGridView1.Rows.Add();
-                dataGridView1["name", dataGridView1.Rows.Count - 1].Value = "Example 2 Good" + i;
-                dataGridView1["price", dataGridView1.Rows.Count - 1].Value = i * 1000;
-                dataGridView1["count", dataGridView1.Rows.Count - 1].Value = i;
+                MessageBox.Show("Вставка");
             }
-
-            //А теперь простой пройдемся циклом по всем ячейкам
-            for(int i = 0; i < dataGridView1.Rows.Count; i++)
+            else
             {
-                for(int j = 0; j < dataGridView1.Columns.Count; j++)
-                {
-                    object o = dataGridView1[j, i].Value;
-                }
+                MessageBox.Show("Парсинг");
             }
         }
     }
