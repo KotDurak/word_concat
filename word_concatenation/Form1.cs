@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using Excell =
 
 namespace word_concatenation
 {
@@ -92,11 +93,11 @@ namespace word_concatenation
         {
             if (paste.Checked)
             {
-                MessageBox.Show("Вставка");
+                MessageBox.Show(col_import.Text);
             }
             else
             {
-                MessageBox.Show("Парсинг");
+                
             }
         }
     }

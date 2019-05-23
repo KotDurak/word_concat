@@ -36,6 +36,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.paste = new System.Windows.Forms.RadioButton();
             this.import = new System.Windows.Forms.RadioButton();
+            this.col_import = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -43,7 +45,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 71);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 99);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(595, 206);
             this.dataGridView1.TabIndex = 0;
@@ -52,7 +54,7 @@
             // 
             // addRowButton
             // 
-            this.addRowButton.Location = new System.Drawing.Point(22, 284);
+            this.addRowButton.Location = new System.Drawing.Point(24, 316);
             this.addRowButton.Name = "addRowButton";
             this.addRowButton.Size = new System.Drawing.Size(75, 23);
             this.addRowButton.TabIndex = 1;
@@ -62,7 +64,7 @@
             // 
             // deleteRowButton
             // 
-            this.deleteRowButton.Location = new System.Drawing.Point(123, 284);
+            this.deleteRowButton.Location = new System.Drawing.Point(125, 316);
             this.deleteRowButton.Name = "deleteRowButton";
             this.deleteRowButton.Size = new System.Drawing.Size(75, 23);
             this.deleteRowButton.TabIndex = 2;
@@ -91,11 +93,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.col_import);
             this.groupBox1.Controls.Add(this.import);
             this.groupBox1.Controls.Add(this.paste);
             this.groupBox1.Location = new System.Drawing.Point(325, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(337, 45);
+            this.groupBox1.Size = new System.Drawing.Size(333, 81);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Импорт в синонимы";
@@ -122,11 +126,27 @@
             this.import.Text = "Парсинг из excell";
             this.import.UseVisualStyleBackColor = true;
             // 
+            // col_import
+            // 
+            this.col_import.Location = new System.Drawing.Point(144, 45);
+            this.col_import.Name = "col_import";
+            this.col_import.Size = new System.Drawing.Size(100, 20);
+            this.col_import.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(112, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Вставка из колонки:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 319);
+            this.ClientSize = new System.Drawing.Size(697, 351);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.importInSynonyms);
             this.Controls.Add(this.addColumn);
@@ -153,6 +173,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton import;
         private System.Windows.Forms.RadioButton paste;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox col_import;
     }
 }
 
