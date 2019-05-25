@@ -23,12 +23,31 @@ namespace word_concatenation
 
         private void addRowButton_Click(object sender, EventArgs e)
         {
-            var column = new DataGridViewColumn();
-            column.HeaderText = "Синонимы 2";
-            column.Name = "synonyms2";
-            column.CellTemplate = new DataGridViewTextBoxCell();
-            column.DisplayIndex = 2;
-            dataGridView1.Columns.Add(column);
+            //Склеивание колонок таблицы в сроку итог; 
+            for(int i = 0; i < dataGridView1.Rows.Count; ++i)
+            {
+                string total = "";
+                for(int j = 0; j < dataGridView1.Columns.Count; ++j)
+                {
+                    //MessageBox.Show(dataGridView1.Columns[j].DisplayIndex.ToString());
+                
+                    for (int k = 0; k < dataGridView1.Columns.Count; k++)
+                    {
+                        if (dataGridView1.Columns[k].DisplayIndex == j
+                            && dataGridView1.Columns[k].Name != "total"
+                            && dataGridView1.Columns[k].Name != "number"
+                            )
+                        { 
+                            string val = dataGridView1[k, i].Value != null ? dataGridView1[k, i].Value.ToString() : "";
+                            total += " " + val;
+                          //  MessageBox.Show(val);
+                        }
+                    }
+                  /*  if (dataGridView1[i, k].Value != null)
+                        MessageBox.Show(dataGridView1[i,k].Value.ToString()); */
+                }
+                dataGridView1["total", i].Value = total;
+            }
         }
 
         private void deleteRowButton_Click(object sender, EventArgs e)
@@ -46,41 +65,44 @@ namespace word_concatenation
         private void Form1_Load(object sender, EventArgs e)
         {
 
-             dataGridView1.AllowUserToOrderColumns = true;
-             
-             var column1 = new DataGridViewColumn();
-             column1.HeaderText = "№ (0)";
-             column1.Width = 50;
-             column1.ReadOnly = true;
-             column1.Name = "number";
-             column1.Frozen = false;
-             column1.CellTemplate = new DataGridViewTextBoxCell();
-          //   column1.DisplayIndex = 0;
+            dataGridView1.AllowUserToOrderColumns = true;
+            dataGridView1.EnableHeadersVisualStyles = false;
 
-             var column2 = new DataGridViewColumn();
-             column2.HeaderText = "Синонимы (1)";
-             column2.Name = "synonyms";
-             column2.CellTemplate = new DataGridViewTextBoxCell();
-           //  column2.DisplayIndex = 50;
-             column1.Frozen = false;
+
+            var column1 = new DataGridViewColumn();
+            column1.HeaderText = "№";
+            column1.Width = 50;
+            column1.ReadOnly = true;
+            column1.Name = "number";
+            column1.Frozen = false;
+            column1.CellTemplate = new DataGridViewTextBoxCell();
+            column1.HeaderCell.Style.ForeColor = Color.Red;
+           
+
+            var column2 = new DataGridViewColumn();
+            column2.HeaderText = "Синонимы";
+            column2.Name = "synonyms";
+            column2.CellTemplate = new DataGridViewTextBoxCell();
+            column2.Frozen = false;
+            column2.HeaderCell.Style.ForeColor = Color.Red;
 
             var column3 = new DataGridViewColumn();
-             column3.HeaderText = "Итог(2)";
-             column3.Name = "total";
-             column3.CellTemplate = new DataGridViewTextBoxCell();
-           //  column3.DisplayIndex = 100;
-             column1.Frozen = false;
+            column3.HeaderText = "Итог";
+            column3.Name = "total";
+            column3.CellTemplate = new DataGridViewTextBoxCell();
+            column3.Frozen = false;
+            column3.HeaderCell.Style.ForeColor = Color.Red;
 
-             dataGridView1.AllowUserToAddRows = false;
-             dataGridView1.Columns.Add(column1);
-             dataGridView1.Columns.Add(column2);
-             dataGridView1.Columns.Add(column3);
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.Columns.Add(column1);
+            dataGridView1.Columns.Add(column2);
+            dataGridView1.Columns.Add(column3);
 
-             for (int i = 0; i < 5; ++i)
-             {
-                 //Добавляем строку, указывая значения колонок поочереди слева направо
-              //    dataGridView1.Rows.Add("Example 1, Good " + i, i * 1000, i);
-             }
+            for (int i = 0; i < 5; ++i)
+            {
+                //Добавляем строку, указывая значения колонок поочереди слева направо
+            //    dataGridView1.Rows.Add("Example 1, Good " + i, i * 1000, i);
+            }
 
             
 
@@ -96,7 +118,7 @@ namespace word_concatenation
         {
             if(e.ColumnIndex == 0)
             {
-                e.Value = e.RowIndex;
+                e.Value = e.RowIndex + 1;
             }
         }
 
@@ -191,6 +213,13 @@ namespace word_concatenation
                 
             }
             form.Dispose();
+        }
+
+        
+
+        private void dataGridView1_MouseUp(object sender, MouseEventArgs e)
+        {
+            
         }
     }
 

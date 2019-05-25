@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.addRowButton = new System.Windows.Forms.Button();
+            this.join = new System.Windows.Forms.Button();
             this.deleteRowButton = new System.Windows.Forms.Button();
             this.addColumn = new System.Windows.Forms.Button();
             this.importInSynonyms = new System.Windows.Forms.Button();
@@ -47,24 +47,25 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 99);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(767, 220);
+            this.dataGridView1.Size = new System.Drawing.Size(822, 348);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            this.dataGridView1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseUp);
             // 
-            // addRowButton
+            // join
             // 
-            this.addRowButton.Location = new System.Drawing.Point(312, 333);
-            this.addRowButton.Name = "addRowButton";
-            this.addRowButton.Size = new System.Drawing.Size(75, 23);
-            this.addRowButton.TabIndex = 1;
-            this.addRowButton.Text = "addRow";
-            this.addRowButton.UseVisualStyleBackColor = true;
-            this.addRowButton.Click += new System.EventHandler(this.addRowButton_Click);
+            this.join.Location = new System.Drawing.Point(657, 453);
+            this.join.Name = "join";
+            this.join.Size = new System.Drawing.Size(75, 23);
+            this.join.TabIndex = 1;
+            this.join.Text = "Склеить";
+            this.join.UseVisualStyleBackColor = true;
+            this.join.Click += new System.EventHandler(this.addRowButton_Click);
             // 
             // deleteRowButton
             // 
-            this.deleteRowButton.Location = new System.Drawing.Point(12, 333);
+            this.deleteRowButton.Location = new System.Drawing.Point(12, 453);
             this.deleteRowButton.Name = "deleteRowButton";
             this.deleteRowButton.Size = new System.Drawing.Size(163, 23);
             this.deleteRowButton.TabIndex = 2;
@@ -148,12 +149,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 368);
+            this.ClientSize = new System.Drawing.Size(836, 509);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.importInSynonyms);
             this.Controls.Add(this.addColumn);
             this.Controls.Add(this.deleteRowButton);
-            this.Controls.Add(this.addRowButton);
+            this.Controls.Add(this.join);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -168,7 +169,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button addRowButton;
+        private System.Windows.Forms.Button join;
         private System.Windows.Forms.Button deleteRowButton;
         private System.Windows.Forms.Button addColumn;
         private System.Windows.Forms.Button importInSynonyms;
