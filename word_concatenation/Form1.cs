@@ -68,6 +68,15 @@ namespace word_concatenation
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.EnableHeadersVisualStyles = false;
 
+            dataGridView1.AutoSizeColumnsMode =
+                  DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoResizeColumns();
+
+            dataGridView1.AutoSizeRowsMode =
+                DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView1.AutoResizeRows(
+                DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders);
+
 
             var column1 = new DataGridViewColumn();
             column1.HeaderText = "№";
@@ -220,6 +229,35 @@ namespace word_concatenation
         private void dataGridView1_MouseUp(object sender, MouseEventArgs e)
         {
             
+        }
+
+        private void export_btn_Click(object sender, EventArgs e)
+        {
+
+            ExcellObj.Application exApp = new ExcellObj.Application();
+            exApp.Workbooks.Add();
+            ExcellObj.Worksheet workSheet = (ExcellObj.Worksheet)exApp.ActiveSheet;
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                string val = dataGridView1["total", i].Value.ToString();
+                workSheet.Cells[i+1, 1] = val;
+            }
+       
+           
+            string pathToFile = Environment.CurrentDirectory + "\\" + "markers.xls";
+            workSheet.SaveAs(pathToFile);
+            exApp.Quit();
+         
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            for(int i = 3; i < dataGridView1.Columns.Count; i++)
+            {
+                dataGridView1.Columns.RemoveAt(i);
+            }
+           // Form1_Load(sender, e);
         }
     }
 
