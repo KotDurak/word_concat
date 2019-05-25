@@ -38,6 +38,8 @@ namespace word_concatenation
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+             dataGridView1.AllowUserToOrderColumns = true;
              var column1 = new DataGridViewColumn();
              column1.HeaderText = "№ (0)";
              column1.Width = 50;
