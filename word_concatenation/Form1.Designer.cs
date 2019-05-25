@@ -53,7 +53,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 99);
+            this.dataGridView1.Location = new System.Drawing.Point(-3, 113);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(834, 332);
             this.dataGridView1.TabIndex = 0;
@@ -191,9 +191,9 @@
             this.first_column_import.AutoSize = true;
             this.first_column_import.Location = new System.Drawing.Point(262, 48);
             this.first_column_import.Name = "first_column_import";
-            this.first_column_import.Size = new System.Drawing.Size(158, 17);
+            this.first_column_import.Size = new System.Drawing.Size(151, 17);
             this.first_column_import.TabIndex = 4;
-            this.first_column_import.Text = "Импорт с первой колонки";
+            this.first_column_import.Text = "Импорт с первой строки";
             this.first_column_import.UseVisualStyleBackColor = true;
             // 
             // Form1
