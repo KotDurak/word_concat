@@ -54,7 +54,7 @@
             // 
             // addRowButton
             // 
-            this.addRowButton.Location = new System.Drawing.Point(28, 333);
+            this.addRowButton.Location = new System.Drawing.Point(312, 333);
             this.addRowButton.Name = "addRowButton";
             this.addRowButton.Size = new System.Drawing.Size(75, 23);
             this.addRowButton.TabIndex = 1;
@@ -64,11 +64,11 @@
             // 
             // deleteRowButton
             // 
-            this.deleteRowButton.Location = new System.Drawing.Point(128, 333);
+            this.deleteRowButton.Location = new System.Drawing.Point(12, 333);
             this.deleteRowButton.Name = "deleteRowButton";
-            this.deleteRowButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteRowButton.Size = new System.Drawing.Size(163, 23);
             this.deleteRowButton.TabIndex = 2;
-            this.deleteRowButton.Text = "deleteRow";
+            this.deleteRowButton.Text = "Очистить пустые строки";
             this.deleteRowButton.UseVisualStyleBackColor = true;
             this.deleteRowButton.Click += new System.EventHandler(this.deleteRowButton_Click);
             // 

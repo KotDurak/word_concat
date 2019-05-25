@@ -33,7 +33,14 @@ namespace word_concatenation
 
         private void deleteRowButton_Click(object sender, EventArgs e)
         {
-           
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if(dataGridView1["synonyms", i].Value == null)
+                {
+                    dataGridView1.Rows.RemoveAt(i);
+                    i--;
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
