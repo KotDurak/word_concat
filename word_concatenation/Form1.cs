@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using Excell =
+using System.Reflection;
+using ExcellObj = Microsoft.Office.Interop.Excel;
 
 namespace word_concatenation
 {
@@ -93,7 +94,51 @@ namespace word_concatenation
         {
             if (paste.Checked)
             {
-                MessageBox.Show(col_import.Text);
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.DefaultExt = "*.xls;*.xlsx";
+                ofd.Filter = " Excel 2003(*.xls)|*.xls|Excel 2007(*.xlsx)|*.xlsx";
+                ofd.Title = "Выберите документ для загрузки данных";
+                ExcellObj.Application app = new ExcellObj.Application();
+                ExcellObj.Workbook workbook;
+                ExcellObj.Worksheet NwSheet;
+                ExcellObj.Range ShtRange;
+                DataTable dt = new DataTable();
+                if(ofd.ShowDialog() == DialogResult.OK)
+                {
+                    workbook = app.Workbooks.Open(ofd.FileName, Missing.Value,
+                        Missing.Value, Missing.Value, Missing.Value, Missing.Value,
+                        Missing.Value, Missing.Value, Missing.Value, Missing.Value,
+                        Missing.Value, Missing.Value, Missing.Value, Missing.Value,
+                        Missing.Value
+                    );
+                    NwSheet = (ExcellObj.Worksheet)workbook.Sheets.get_Item(1);
+                    //    ShtRange = NwSheet.UsedRange;
+                    string range = col_import.Text + ":" + col_import.Text;
+                  
+                    ShtRange = NwSheet.get_Range(range);
+                     
+                    for(int Cnum = 1; Cnum <= ShtRange.Columns.Count; Cnum++)
+                    {
+                      //  MessageBox.Show((ShtRange.Cells[1, Cnum] as ExcellObj.Range).Value2.ToString());
+                      //Запишем значение в какой то массив;
+                    }
+                    for(int Rnum = 2; Rnum <= ShtRange.Rows.Count; Rnum++)
+                    {
+                        for(int Cnum = 1; Cnum <= ShtRange.Columns.Count; Cnum++)
+                        {
+                            dataGridView1.Rows.Add();
+                            if ((ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2 != null)
+                            {
+                                // MessageBox.Show((ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString());
+                                dataGridView1["synonyms", Rnum - 2].Value = (ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString();
+                            }           
+                        }
+                        if (Rnum == 100)
+                        {
+                            break;
+                        }
+                    }
+                }
             }
             else
             {

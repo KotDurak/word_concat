@@ -34,10 +34,10 @@
             this.addColumn = new System.Windows.Forms.Button();
             this.importInSynonyms = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.paste = new System.Windows.Forms.RadioButton();
-            this.import = new System.Windows.Forms.RadioButton();
-            this.col_import = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.col_import = new System.Windows.Forms.TextBox();
+            this.import = new System.Windows.Forms.RadioButton();
+            this.paste = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -104,17 +104,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Импорт в синонимы";
             // 
-            // paste
+            // label1
             // 
-            this.paste.AutoSize = true;
-            this.paste.Checked = true;
-            this.paste.Location = new System.Drawing.Point(26, 19);
-            this.paste.Name = "paste";
-            this.paste.Size = new System.Drawing.Size(112, 17);
-            this.paste.TabIndex = 0;
-            this.paste.TabStop = true;
-            this.paste.Text = "Вставка из excell";
-            this.paste.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(112, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Вставка из колонки:";
+            // 
+            // col_import
+            // 
+            this.col_import.Location = new System.Drawing.Point(144, 45);
+            this.col_import.Name = "col_import";
+            this.col_import.Size = new System.Drawing.Size(100, 20);
+            this.col_import.TabIndex = 2;
+            this.col_import.Text = "A";
             // 
             // import
             // 
@@ -126,21 +131,17 @@
             this.import.Text = "Парсинг из excell";
             this.import.UseVisualStyleBackColor = true;
             // 
-            // col_import
+            // paste
             // 
-            this.col_import.Location = new System.Drawing.Point(144, 45);
-            this.col_import.Name = "col_import";
-            this.col_import.Size = new System.Drawing.Size(100, 20);
-            this.col_import.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Вставка из колонки:";
+            this.paste.AutoSize = true;
+            this.paste.Checked = true;
+            this.paste.Location = new System.Drawing.Point(26, 19);
+            this.paste.Name = "paste";
+            this.paste.Size = new System.Drawing.Size(112, 17);
+            this.paste.TabIndex = 0;
+            this.paste.TabStop = true;
+            this.paste.Text = "Вставка из excell";
+            this.paste.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
