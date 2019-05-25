@@ -19,3 +19,4 @@ I:\c_sharp\word_concat\word_concatenation\obj\Debug\word_concatenation.csprojRes
 I:\c_sharp\word_concat\word_concatenation\obj\Debug\word_concatenation.Form1.resources
 I:\c_sharp\word_concat\word_concatenation\obj\Debug\word_concatenation.Properties.Resources.resources
 I:\c_sharp\word_concat\word_concatenation\obj\Debug\word_concatenation.csproj.GenerateResource.Cache
+I:\c_sharp\word_concat\word_concatenation\obj\Debug\word_concatenation.AddColumnForm.resources

@@ -40,6 +40,7 @@ namespace word_concatenation
         {
 
              dataGridView1.AllowUserToOrderColumns = true;
+             
              var column1 = new DataGridViewColumn();
              column1.HeaderText = "№ (0)";
              column1.Width = 50;
@@ -121,31 +122,68 @@ namespace word_concatenation
                      
                     for(int Cnum = 1; Cnum <= ShtRange.Columns.Count; Cnum++)
                     {
-                      //  MessageBox.Show((ShtRange.Cells[1, Cnum] as ExcellObj.Range).Value2.ToString());
-                      //Запишем значение в какой то массив;
+                        
                     }
+                    int empty_count = 0;
                     for(int Rnum = 2; Rnum <= ShtRange.Rows.Count; Rnum++)
                     {
-                        for(int Cnum = 1; Cnum <= ShtRange.Columns.Count; Cnum++)
-                        {
-                            dataGridView1.Rows.Add();
-                            if ((ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2 != null)
-                            {
-                                // MessageBox.Show((ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString());
-                                dataGridView1["synonyms", Rnum - 2].Value = (ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString();
-                            }           
-                        }
-                        if (Rnum == 100)
+                        if(empty_count == 10)
                         {
                             break;
                         }
+                        if (Rnum - 2 >= dataGridView1.Rows.Count)
+                        {
+                            dataGridView1.Rows.Add();
+                        }
+                        for(int Cnum = 1; Cnum <= ShtRange.Columns.Count; Cnum++)
+                        {
+                          
+                            if ((ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2 != null)
+                            {
+                                empty_count = 0;
+                                // MessageBox.Show((ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString());
+                                dataGridView1["synonyms", Rnum - 2].Value = (ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString();
+                            }
+                                    
+                        }
+                        empty_count++;
+                   
                     }
+                    app.Quit();
                 }
             }
             else
             {
                 
             }
+        }
+
+        private void addColumn_Click(object sender, EventArgs e)
+        {
+            AddColumnForm form = new AddColumnForm();
+            form.Owner = this;
+            if(form.ShowDialog() == DialogResult.OK)
+            {
+                int rows_number =  Convert.ToInt32(form.rows_number.Text);
+                var column = new DataGridViewColumn();
+                column.HeaderText = form.col_name.Text;
+             //   column.Name = "synonyms2";
+                column.CellTemplate = new DataGridViewTextBoxCell();
+           //     column.DisplayIndex = 2;
+                dataGridView1.Columns.Add(column);
+      
+                for(int i = 0; i < rows_number; i++)
+                {
+                    if (i >= dataGridView1.Rows.Count)
+                    {
+                        dataGridView1.Rows.Add();
+                    }
+                    dataGridView1[column.Index, i].Value = form.col_symbols.Text;
+                }
+                dataGridView1.Columns["total"].DisplayIndex = dataGridView1.Columns.Count - 1;
+                
+            }
+            form.Dispose();
         }
     }
 

@@ -47,14 +47,14 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 99);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(595, 206);
+            this.dataGridView1.Size = new System.Drawing.Size(767, 220);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
             // 
             // addRowButton
             // 
-            this.addRowButton.Location = new System.Drawing.Point(24, 316);
+            this.addRowButton.Location = new System.Drawing.Point(28, 333);
             this.addRowButton.Name = "addRowButton";
             this.addRowButton.Size = new System.Drawing.Size(75, 23);
             this.addRowButton.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             // deleteRowButton
             // 
-            this.deleteRowButton.Location = new System.Drawing.Point(125, 316);
+            this.deleteRowButton.Location = new System.Drawing.Point(128, 333);
             this.deleteRowButton.Name = "deleteRowButton";
             this.deleteRowButton.Size = new System.Drawing.Size(75, 23);
             this.deleteRowButton.TabIndex = 2;
@@ -80,6 +80,7 @@
             this.addColumn.TabIndex = 3;
             this.addColumn.Text = "Добавить колонку";
             this.addColumn.UseVisualStyleBackColor = true;
+            this.addColumn.Click += new System.EventHandler(this.addColumn_Click);
             // 
             // importInSynonyms
             // 
@@ -147,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 351);
+            this.ClientSize = new System.Drawing.Size(807, 368);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.importInSynonyms);
             this.Controls.Add(this.addColumn);
