@@ -93,7 +93,7 @@ namespace word_concatenation
         {
             if (paste.Checked)
             {
-                MessageBox.Show(col_import.Text);
+                MessageBox.Show(col_import.Text + " Hello");
             }
             else
             {

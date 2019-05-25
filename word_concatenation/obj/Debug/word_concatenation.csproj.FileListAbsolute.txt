@@ -8,11 +8,14 @@ D:\c sharp\word_concatenation\word_concatenation\obj\Debug\word_concatenation.cs
 D:\c sharp\word_concatenation\word_concatenation\obj\Debug\word_concatenation.exe
 D:\c sharp\word_concatenation\word_concatenation\obj\Debug\word_concatenation.pdb
 I:\c_sharp\word_concat\word_concatenation\bin\Debug\word_concatenation.exe.config
+<<<<<<< HEAD
+=======
+I:\c_sharp\word_concat\word_concatenation\obj\Debug\word_concatenation.exe
+I:\c_sharp\word_concat\word_concatenation\obj\Debug\word_concatenation.pdb
+>>>>>>> d5c897fd06c6e9a1ad86f61813688b32b544bd80
 I:\c_sharp\word_concat\word_concatenation\bin\Debug\word_concatenation.exe
 I:\c_sharp\word_concat\word_concatenation\bin\Debug\word_concatenation.pdb
 I:\c_sharp\word_concat\word_concatenation\obj\Debug\word_concatenation.csprojResolveAssemblyReference.cache
 I:\c_sharp\word_concat\word_concatenation\obj\Debug\word_concatenation.Form1.resources
 I:\c_sharp\word_concat\word_concatenation\obj\Debug\word_concatenation.Properties.Resources.resources
 I:\c_sharp\word_concat\word_concatenation\obj\Debug\word_concatenation.csproj.GenerateResource.Cache
-I:\c_sharp\word_concat\word_concatenation\obj\Debug\word_concatenation.exe
-I:\c_sharp\word_concat\word_concatenation\obj\Debug\word_concatenation.pdb
