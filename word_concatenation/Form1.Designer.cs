@@ -40,16 +40,22 @@
             this.paste = new System.Windows.Forms.RadioButton();
             this.export_btn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.first_column_import = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 99);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 99);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(822, 348);
+            this.dataGridView1.Size = new System.Drawing.Size(834, 332);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
@@ -57,7 +63,7 @@
             // 
             // join
             // 
-            this.join.Location = new System.Drawing.Point(697, 453);
+            this.join.Location = new System.Drawing.Point(756, 3);
             this.join.Name = "join";
             this.join.Size = new System.Drawing.Size(75, 23);
             this.join.TabIndex = 1;
@@ -67,7 +73,7 @@
             // 
             // deleteRowButton
             // 
-            this.deleteRowButton.Location = new System.Drawing.Point(12, 453);
+            this.deleteRowButton.Location = new System.Drawing.Point(3, 14);
             this.deleteRowButton.Name = "deleteRowButton";
             this.deleteRowButton.Size = new System.Drawing.Size(163, 23);
             this.deleteRowButton.TabIndex = 2;
@@ -97,13 +103,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.first_column_import);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.col_import);
             this.groupBox1.Controls.Add(this.import);
             this.groupBox1.Controls.Add(this.paste);
             this.groupBox1.Location = new System.Drawing.Point(325, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(333, 81);
+            this.groupBox1.Size = new System.Drawing.Size(441, 81);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Импорт в синонимы";
@@ -149,7 +156,7 @@
             // 
             // export_btn
             // 
-            this.export_btn.Location = new System.Drawing.Point(697, 482);
+            this.export_btn.Location = new System.Drawing.Point(756, 37);
             this.export_btn.Name = "export_btn";
             this.export_btn.Size = new System.Drawing.Size(75, 23);
             this.export_btn.TabIndex = 6;
@@ -167,18 +174,38 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.join);
+            this.panel1.Controls.Add(this.export_btn);
+            this.panel1.Controls.Add(this.deleteRowButton);
+            this.panel1.Location = new System.Drawing.Point(0, 437);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(834, 68);
+            this.panel1.TabIndex = 8;
+            // 
+            // first_column_import
+            // 
+            this.first_column_import.AutoSize = true;
+            this.first_column_import.Location = new System.Drawing.Point(262, 48);
+            this.first_column_import.Name = "first_column_import";
+            this.first_column_import.Size = new System.Drawing.Size(158, 17);
+            this.first_column_import.TabIndex = 4;
+            this.first_column_import.Text = "Импорт с первой колонки";
+            this.first_column_import.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 509);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.export_btn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.importInSynonyms);
             this.Controls.Add(this.addColumn);
-            this.Controls.Add(this.deleteRowButton);
-            this.Controls.Add(this.join);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -186,6 +213,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -204,6 +232,8 @@
         private System.Windows.Forms.TextBox col_import;
         private System.Windows.Forms.Button export_btn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox first_column_import;
     }
 }
 

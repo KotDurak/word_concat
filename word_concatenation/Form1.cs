@@ -68,14 +68,7 @@ namespace word_concatenation
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.EnableHeadersVisualStyles = false;
 
-            dataGridView1.AutoSizeColumnsMode =
-                  DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.AutoResizeColumns();
-
-            dataGridView1.AutoSizeRowsMode =
-                DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView1.AutoResizeRows(
-                DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders);
+           
 
 
             var column1 = new DataGridViewColumn();
@@ -163,13 +156,15 @@ namespace word_concatenation
                         
                     }
                     int empty_count = 0;
-                    for(int Rnum = 2; Rnum <= ShtRange.Rows.Count; Rnum++)
+                    int start = first_column_import.Checked ? 1 : 2;
+                    
+                    for(int Rnum = start; Rnum <= ShtRange.Rows.Count; Rnum++)
                     {
                         if(empty_count == 10)
                         {
                             break;
                         }
-                        if (Rnum - 2 >= dataGridView1.Rows.Count)
+                        if (Rnum - start >= dataGridView1.Rows.Count)
                         {
                             dataGridView1.Rows.Add();
                         }
@@ -180,7 +175,7 @@ namespace word_concatenation
                             {
                                 empty_count = 0;
                                 // MessageBox.Show((ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString());
-                                dataGridView1["synonyms", Rnum - 2].Value = (ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString();
+                                dataGridView1["synonyms", Rnum - start].Value = (ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString();
                             }
                                     
                         }
