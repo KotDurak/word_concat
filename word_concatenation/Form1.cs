@@ -151,10 +151,6 @@ namespace word_concatenation
                   
                     ShtRange = NwSheet.get_Range(range);
                      
-                    for(int Cnum = 1; Cnum <= ShtRange.Columns.Count; Cnum++)
-                    {
-                        
-                    }
                     int empty_count = 0;
                     int start = first_column_import.Checked ? 1 : 2;
                     
@@ -187,7 +183,49 @@ namespace word_concatenation
             }
             else
             {
-                
+                //Парсинг синонимов
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.DefaultExt = "*.xls;*.xlsx";
+                ofd.Filter = " Excel 2003(*.xls)|*.xls|Excel 2007(*.xlsx)|*.xlsx";
+                ofd.Title = "Выберите документ для загрузки данных";
+                ExcellObj.Application app = new ExcellObj.Application();
+                ExcellObj.Workbook workbook;
+                ExcellObj.Worksheet NwSheet;
+                ExcellObj.Range ShtRange;
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    workbook = app.Workbooks.Open(ofd.FileName, Missing.Value,
+                       Missing.Value, Missing.Value, Missing.Value, Missing.Value,
+                       Missing.Value, Missing.Value, Missing.Value, Missing.Value,
+                       Missing.Value, Missing.Value, Missing.Value, Missing.Value,
+                       Missing.Value
+                   );
+                    NwSheet = (ExcellObj.Worksheet)workbook.Sheets.get_Item(1);
+                    string range = col_import.Text + ":" + col_import.Text;
+ 
+                    ShtRange = NwSheet.get_Range(range);
+                    int start = first_column_import.Checked ? 1 : 2;
+                    int empty_count = 0;
+                    
+                    for (int Rnum = start; Rnum <= ShtRange.Rows.Count; Rnum++)
+                    {
+                        if (empty_count == 10)
+                        {
+                            break;
+                        }
+                        for (int Cnum = 1; Cnum <= ShtRange.Columns.Count; Cnum++)
+                        {
+                            if ((ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2 != null)
+                            {
+                                empty_count = 0;
+                               string value = (ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString();
+                                MessageBox.Show(SynomymsParse.GetWord(value));
+                            }
+                        }
+                        empty_count++;
+                    }
+                    app.Quit();
+                }
             }
         }
 
