@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using ExcellObj = Microsoft.Office.Interop.Excel;
+using System.Threading;
 
 namespace word_concatenation
 {
@@ -206,20 +207,25 @@ namespace word_concatenation
                     ShtRange = NwSheet.get_Range(range);
                     int start = first_column_import.Checked ? 1 : 2;
                     int empty_count = 0;
-                    
+                   
                     for (int Rnum = start; Rnum <= ShtRange.Rows.Count; Rnum++)
                     {
                         if (empty_count == 10)
                         {
                             break;
                         }
+                        if (Rnum - start >= dataGridView1.Rows.Count)
+                        {
+                            dataGridView1.Rows.Add();
+                        }
                         for (int Cnum = 1; Cnum <= ShtRange.Columns.Count; Cnum++)
                         {
                             if ((ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2 != null)
                             {
                                 empty_count = 0;
-                               string value = (ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString();
-                                MessageBox.Show(SynomymsParse.GetWord(value));
+                                string value = (ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString();
+                                dataGridView1["synonyms", Rnum - start].Value = SynomymsParse.GetWord(value);
+                                Thread.Sleep(1000);
                             }
                         }
                         empty_count++;

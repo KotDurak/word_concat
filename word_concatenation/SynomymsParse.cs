@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using HtmlAgilityPack;
 using System.Net;
 using System.IO;
+using System.Threading;
 
 namespace word_concatenation
 {
@@ -19,13 +20,27 @@ namespace word_concatenation
             var document = new HtmlDocument();
             document.LoadHtml(pageContent);
              HtmlNodeCollection words = document.DocumentNode.SelectNodes("//table[@id='table_list_synonym']//td[@class='ta-l']/a");
-           // HtmlNode tableNode = document.DocumentNode.SelectSingleNode("//table[@id='table_list_synonym']");
-            foreach(HtmlNode elem in words)
+            // HtmlNode tableNode = document.DocumentNode.SelectSingleNode("//table[@id='table_list_synonym']");
+            if (words == null)
             {
-                result += " " + elem.InnerText;
+                return "";
             }
+            result += "(+" + word + "|";
+            int i = 0;
+            foreach (HtmlNode elem in words)
+            {
+                i++;
+                if (i != words.Count)
+                {
+                    result += " +" + elem.InnerText + "|";
+                }
+                else
+                {
+                    result += " +" + elem.InnerText;
+                }
+            }
+            result += ")";
             
-
             return result;
         }
 

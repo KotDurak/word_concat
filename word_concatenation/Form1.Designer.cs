@@ -34,6 +34,7 @@
             this.addColumn = new System.Windows.Forms.Button();
             this.importInSynonyms = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.first_column_import = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.col_import = new System.Windows.Forms.TextBox();
             this.import = new System.Windows.Forms.RadioButton();
@@ -41,7 +42,6 @@
             this.export_btn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.first_column_import = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -110,10 +110,20 @@
             this.groupBox1.Controls.Add(this.paste);
             this.groupBox1.Location = new System.Drawing.Point(325, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(441, 81);
+            this.groupBox1.Size = new System.Drawing.Size(441, 95);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Импорт в синонимы";
+            // 
+            // first_column_import
+            // 
+            this.first_column_import.AutoSize = true;
+            this.first_column_import.Location = new System.Drawing.Point(262, 48);
+            this.first_column_import.Name = "first_column_import";
+            this.first_column_import.Size = new System.Drawing.Size(151, 17);
+            this.first_column_import.TabIndex = 4;
+            this.first_column_import.Text = "Импорт с первой строки";
+            this.first_column_import.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -185,16 +195,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(834, 68);
             this.panel1.TabIndex = 8;
-            // 
-            // first_column_import
-            // 
-            this.first_column_import.AutoSize = true;
-            this.first_column_import.Location = new System.Drawing.Point(262, 48);
-            this.first_column_import.Name = "first_column_import";
-            this.first_column_import.Size = new System.Drawing.Size(151, 17);
-            this.first_column_import.TabIndex = 4;
-            this.first_column_import.Text = "Импорт с первой строки";
-            this.first_column_import.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
