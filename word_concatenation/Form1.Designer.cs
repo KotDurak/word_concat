@@ -42,6 +42,7 @@
             this.export_btn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbx_ping = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -103,6 +104,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbx_ping);
             this.groupBox1.Controls.Add(this.first_column_import);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.col_import);
@@ -196,6 +198,18 @@
             this.panel1.Size = new System.Drawing.Size(834, 68);
             this.panel1.TabIndex = 8;
             // 
+            // cbx_ping
+            // 
+            this.cbx_ping.AutoSize = true;
+            this.cbx_ping.Checked = true;
+            this.cbx_ping.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbx_ping.Location = new System.Drawing.Point(262, 20);
+            this.cbx_ping.Name = "cbx_ping";
+            this.cbx_ping.Size = new System.Drawing.Size(171, 17);
+            this.cbx_ping.TabIndex = 5;
+            this.cbx_ping.Text = "Задержка между парсингом";
+            this.cbx_ping.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,6 +248,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox first_column_import;
+        private System.Windows.Forms.CheckBox cbx_ping;
     }
 }
 
