@@ -13,8 +13,19 @@ namespace word_concatenation
     {
         public static string GetWord(string word)
         {
+            string result = "";
             string url = @"https://text.ru/synonym/" + word;
-            string result = SynomymsParse.LoadPage(url);
+            var pageContent = SynomymsParse.LoadPage(url);
+            var document = new HtmlDocument();
+            document.LoadHtml(pageContent);
+             HtmlNodeCollection words = document.DocumentNode.SelectNodes("//table[@id='table_list_synonym']//td[@class='ta-l']/a");
+           // HtmlNode tableNode = document.DocumentNode.SelectSingleNode("//table[@id='table_list_synonym']");
+            foreach(HtmlNode elem in words)
+            {
+                result += " " + elem.InnerText;
+            }
+            
+
             return result;
         }
 
