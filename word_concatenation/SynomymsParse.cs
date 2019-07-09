@@ -14,34 +14,44 @@ namespace word_concatenation
     {
         public static string GetWord(string word)
         {
-            string result = "";
-            string url = @"https://text.ru/synonym/" + word;
-            var pageContent = SynomymsParse.LoadPage(url);
-            var document = new HtmlDocument();
-            document.LoadHtml(pageContent);
-             HtmlNodeCollection words = document.DocumentNode.SelectNodes("//table[@id='table_list_synonym']//td[@class='ta-l']/a");
-            // HtmlNode tableNode = document.DocumentNode.SelectSingleNode("//table[@id='table_list_synonym']");
-            if (words == null)
+            try
             {
-                return "";
+                string result = "";
+                string url = @"https://text.ru/synonym/" + word;
+                var pageContent = SynomymsParse.LoadPage(url);
+                var document = new HtmlDocument();
+                document.LoadHtml(pageContent);
+                HtmlNodeCollection words = document.DocumentNode.SelectNodes("//table[@id='table_list_synonym']//td[@class='ta-l']/a");
+                // HtmlNode tableNode = document.DocumentNode.SelectSingleNode("//table[@id='table_list_synonym']");
+                if (words == null)
+                {
+                    return "";
+                }
+                result += "(+" + word + "|";
+                int i = 0;
+                foreach (HtmlNode elem in words)
+                {
+                    i++;
+                    if (i != words.Count)
+                    {
+                        result += " +" + elem.InnerText + "|";
+                    }
+                    else
+                    {
+                        result += " +" + elem.InnerText;
+                    }
+                }
+                result += ")";
+                return result;
             }
-            result += "(+" + word + "|";
-            int i = 0;
-            foreach (HtmlNode elem in words)
+            catch (Exception)
             {
-                i++;
-                if (i != words.Count)
-                {
-                    result += " +" + elem.InnerText + "|";
-                }
-                else
-                {
-                    result += " +" + elem.InnerText;
-                }
+
+                return "Синоним не найден";
             }
-            result += ")";
             
-            return result;
+            
+            
         }
 
         static string LoadPage(string url)

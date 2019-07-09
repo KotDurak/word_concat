@@ -34,6 +34,7 @@
             this.addColumn = new System.Windows.Forms.Button();
             this.importInSynonyms = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbx_ping = new System.Windows.Forms.CheckBox();
             this.first_column_import = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.col_import = new System.Windows.Forms.TextBox();
@@ -42,7 +43,6 @@
             this.export_btn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cbx_ping = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -117,9 +117,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Импорт в синонимы";
             // 
+            // cbx_ping
+            // 
+            this.cbx_ping.AutoSize = true;
+            this.cbx_ping.Checked = true;
+            this.cbx_ping.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbx_ping.Location = new System.Drawing.Point(262, 20);
+            this.cbx_ping.Name = "cbx_ping";
+            this.cbx_ping.Size = new System.Drawing.Size(171, 17);
+            this.cbx_ping.TabIndex = 5;
+            this.cbx_ping.Text = "Задержка между парсингом";
+            this.cbx_ping.UseVisualStyleBackColor = true;
+            // 
             // first_column_import
             // 
             this.first_column_import.AutoSize = true;
+            this.first_column_import.Checked = true;
+            this.first_column_import.CheckState = System.Windows.Forms.CheckState.Checked;
             this.first_column_import.Location = new System.Drawing.Point(262, 48);
             this.first_column_import.Name = "first_column_import";
             this.first_column_import.Size = new System.Drawing.Size(151, 17);
@@ -197,18 +211,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(834, 68);
             this.panel1.TabIndex = 8;
-            // 
-            // cbx_ping
-            // 
-            this.cbx_ping.AutoSize = true;
-            this.cbx_ping.Checked = true;
-            this.cbx_ping.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbx_ping.Location = new System.Drawing.Point(262, 20);
-            this.cbx_ping.Name = "cbx_ping";
-            this.cbx_ping.Size = new System.Drawing.Size(171, 17);
-            this.cbx_ping.TabIndex = 5;
-            this.cbx_ping.Text = "Задержка между парсингом";
-            this.cbx_ping.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
