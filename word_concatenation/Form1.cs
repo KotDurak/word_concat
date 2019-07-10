@@ -308,6 +308,22 @@ namespace word_concatenation
             }
            // Form1_Load(sender, e);
         }
+
+        private void dataGridView1_ColumnHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Удаление столбца", "Удалить данный столбец?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+            if (dr == DialogResult.Yes)
+            {
+                dataGridView1.Columns.RemoveAt(e.ColumnIndex);
+            }
+            else if (dr == DialogResult.Cancel)
+            {
+                //
+            }
+            
+           // MessageBox.Show(e.ColumnIndex.ToString());
+        }
     }
 
 }
