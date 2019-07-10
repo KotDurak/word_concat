@@ -231,6 +231,7 @@ namespace word_concatenation
                             {
                                 empty_count = 0;
                                 string value = (ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString();
+                                this.Text = "Парсинг: " + value;
                                 dataGridView1["synonyms", Rnum - start].Value = SynomymsParse.GetWord(value);
                                 if(cbx_ping.Checked)
                                     Thread.Sleep(1000);
@@ -238,6 +239,7 @@ namespace word_concatenation
                         }
                         empty_count++;
                     }
+                    this.Text = "Парснг завершен";
                     app.Quit();
                 }
             }
