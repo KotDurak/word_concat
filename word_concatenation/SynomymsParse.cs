@@ -46,8 +46,7 @@ namespace word_concatenation
             }
             catch (Exception)
             {
-
-                return "Синоним не найден";
+                return "";
             }
             
             
