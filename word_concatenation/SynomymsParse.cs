@@ -27,14 +27,14 @@ namespace word_concatenation
                 {
                     return "";
                 }
-                result += "(+" + word + "|";
+                result += "(+" + word + " |";
                 int i = 0;
                 foreach (HtmlNode elem in words)
                 {
                     i++;
                     if (i != words.Count)
                     {
-                        result += " +" + elem.InnerText + "|";
+                        result += " +" + elem.InnerText + " |";
                     }
                     else
                     {

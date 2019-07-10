@@ -55,10 +55,14 @@ namespace word_concatenation
         {
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                if(dataGridView1["synonyms", i].Value == null)
+                if(dataGridView1["synonyms", i].Value == null || dataGridView1["synonyms", i].Value == "")
                 {
-                    dataGridView1.Rows.RemoveAt(i);
-                    i--;
+                    for(int j = 0; j < dataGridView1.Columns.Count; j++)
+                    {
+                        dataGridView1[j,i].Value = "";
+                    }
+                    //dataGridView1.Rows.RemoveAt(i);
+                 //   i--;
                 }
             }
         }
@@ -167,14 +171,17 @@ namespace word_concatenation
                         }
                         for(int Cnum = 1; Cnum <= ShtRange.Columns.Count; Cnum++)
                         {
-                          
                             if ((ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2 != null)
                             {
                                 empty_count = 0;
-                                // MessageBox.Show((ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString());
                                 dataGridView1["synonyms", Rnum - start].Value = (ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString();
                             }
-                                    
+                            else
+                            {
+                                // MessageBox.Show((ShtRange.Cells[Rnum, Cnum] as ExcellObj.Range).Value2.ToString());
+                              
+                            }
+                         //   MessageBox.Show(Rnum.ToString() + " and " + Cnum.ToString());
                         }
                         empty_count++;
                    
