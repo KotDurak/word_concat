@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using ExcellObj = Microsoft.Office.Interop.Excel;
 using System.Threading;
+using word_concatenation.services;
 
 namespace word_concatenation
 {
@@ -17,6 +18,8 @@ namespace word_concatenation
     {
         public Form1()
         {
+            Construct_two ct = new Construct_two();
+            MessageBox.Show(ct.tigr());
             InitializeComponent();
         }
 
