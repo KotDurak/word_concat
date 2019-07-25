@@ -8,6 +8,9 @@ namespace word_concatenation.services
 {
     class ConstructService
     {
-        
+        public string getConstruction(string row)
+        {
+            return row;
+        }
     }
 }

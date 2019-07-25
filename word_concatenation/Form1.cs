@@ -100,16 +100,24 @@ namespace word_concatenation
             column2.HeaderCell.Style.ForeColor = Color.Red;
 
             var column3 = new DataGridViewColumn();
-            column3.HeaderText = "Итог";
+            column3.HeaderText = "Конструкция 1";
             column3.Name = "total";
             column3.CellTemplate = new DataGridViewTextBoxCell();
             column3.Frozen = false;
             column3.HeaderCell.Style.ForeColor = Color.Red;
 
+            var column4 = new DataGridViewColumn();
+            column4.HeaderText = "Конструкция 2";
+            column4.Name = "total_two";
+            column4.CellTemplate = new DataGridViewTextBoxCell();
+            column4.Frozen = false;
+            column4.HeaderCell.Style.ForeColor = Color.Red;
+
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.Columns.Add(column1);
             dataGridView1.Columns.Add(column2);
             dataGridView1.Columns.Add(column3);
+            dataGridView1.Columns.Add(column4);
 
             for (int i = 0; i < 5; ++i)
             {
@@ -327,8 +335,15 @@ namespace word_concatenation
             {
                 //
             }
-            
-           // MessageBox.Show(e.ColumnIndex.ToString());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                string val = dataGridView1["total", i].Value.ToString();
+                MessageBox.Show(val);
+            }
         }
     }
 
