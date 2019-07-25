@@ -26,7 +26,7 @@ namespace word_concatenation
                 // HtmlNode tableNode = document.DocumentNode.SelectSingleNode("//table[@id='table_list_synonym']");
                 if (words == null)
                 {
-                    return "";
+                    return "(+" + word + ")";
                 }
                 result += "(+" + word + " |";
                 int i = 0;
@@ -47,7 +47,7 @@ namespace word_concatenation
             }
             catch (Exception)
             {
-                return "";
+                return "(+" + word + ")";
             }
             
             
