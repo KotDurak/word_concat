@@ -17,6 +17,7 @@ namespace word_concatenation
             try
             {
                 string result = "";
+                word = word.Trim();
                 string url = @"https://text.ru/synonym/" + word;
                 var pageContent = SynomymsParse.LoadPage(url);
                 var document = new HtmlDocument();

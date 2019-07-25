@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace word_concatenation.services
 {
-    class Construct_two
+    class ConstructService
     {
-        public string tigr()
-        {
-            return "Skotina";
-        }
+        
     }
 }

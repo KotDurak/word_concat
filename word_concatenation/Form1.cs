@@ -14,12 +14,15 @@ using word_concatenation.services;
 
 namespace word_concatenation
 {
+  
     public partial class Form1 : Form
     {
+
+        ConstructService constructService;
+
         public Form1()
         {
-            Construct_two ct = new Construct_two();
-            MessageBox.Show(ct.tigr());
+            this.constructService = new ConstructService();
             InitializeComponent();
         }
 
