@@ -352,13 +352,29 @@ namespace word_concatenation
             foreach(string line in lines)
             {
                 List<string> format_lines = this.constructService.getConstruction(line);
+                if(format_lines == null)
+                {
+                    continue;
+                } 
                 foreach (string format_line in format_lines)
                 {
                     collections.Add(format_line);
                 }
                 
             }
-            collections.Add("test");
+            //   column.Name = "synonyms2";
+           
+            //     column.DisplayIndex = 2;
+         
+
+            for (int i = 0; i < collections.Count; i++)
+            {
+                if (i >= dataGridView1.Rows.Count)
+                {
+                    dataGridView1.Rows.Add();
+                }
+                dataGridView1["total_two", i].Value = collections[i];
+            }
         }
     }
 

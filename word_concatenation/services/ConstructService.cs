@@ -33,7 +33,7 @@ namespace word_concatenation.services
         private Hashtable getGroups(string row)
         {
             Hashtable elements = new Hashtable();
-            string pattern = @"(\([а-яА-Я\s\|]+\))\s(\(.+\))(.*)";
+            string pattern = @"(\([а-яА-Я\s\|]+\))\s*(\(.+\))(.*)";
             MatchCollection collection =  Regex.Matches(row, pattern, RegexOptions.IgnoreCase);
 
             foreach (Match col in collection)
@@ -66,10 +66,10 @@ namespace word_concatenation.services
         {
             string row = String.Concat(Enumerable.Repeat(marker + ' ', count_marker));
             row += synonim;
+            row = '\"' + row + '\"';
             row += minus_words;
             return row;
         }
-
         private List<string> getAllWariant(string[] markers, string[] synonims, string minus_words)
         {
             string[] result = new string[markers.Length * synonims.Length * ConstructService.ITERATION_COUNT];
