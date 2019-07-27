@@ -11,6 +11,7 @@ using System.Reflection;
 using ExcellObj = Microsoft.Office.Interop.Excel;
 using System.Threading;
 using word_concatenation.services;
+using System.Collections;
 
 namespace word_concatenation
 {
@@ -339,11 +340,25 @@ namespace word_concatenation
 
         private void button3_Click(object sender, EventArgs e)
         {
+  
+            List<string> lines = new List<string>();
+            List<string> collections = new List<string>();
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 string val = dataGridView1["total", i].Value.ToString();
-                string c = this.constructService.getConstruction(val);
+                lines.Add(dataGridView1["total", i].Value.ToString());
             }
+ 
+            foreach(string line in lines)
+            {
+                List<string> format_lines = this.constructService.getConstruction(line);
+                foreach (string format_line in format_lines)
+                {
+                    collections.Add(format_line);
+                }
+                
+            }
+            collections.Add("test");
         }
     }
 

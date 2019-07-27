@@ -14,20 +14,20 @@ namespace word_concatenation.services
 
         public const int ITERATION_COUNT = 6;
 
-        public string getConstruction(string row)
+        public List<string> getConstruction(string row)
         {
             // (матрас|матрац) (+кот | +Котик | +Котяра | +Котенька | +Пушистый друг | +Котейка | +Барсик | +Коток | +Усатый-полосатый | +Мышелов | +Питомец | +Любимец | +Животное | +Котище | +Котофей | +Васька | +Котишка | +Коташка | +Мурзик | +Котяга | +Хаус | +Женолюб | +Сутенер | +Бабник | +Кобель) минус 
             Hashtable collection = this.getGroups(row);
             if (collection.Count == 0)
             {
-                return "";
+                return null;
             }
             string[] markers =  this.getWords(collection["markers"].ToString());
             string[] synonims = this.trimSynonims(this.getWords(collection["synonims"].ToString()));
 
             List<string> lines = this.getAllWariant(markers, synonims, collection["minus"].ToString());
 
-            return row;
+            return lines;
         }
 
         private Hashtable getGroups(string row)
