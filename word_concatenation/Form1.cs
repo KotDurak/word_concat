@@ -342,7 +342,7 @@ namespace word_concatenation
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 string val = dataGridView1["total", i].Value.ToString();
-                MessageBox.Show(val);
+                string c = this.constructService.getConstruction(val);
             }
         }
     }
