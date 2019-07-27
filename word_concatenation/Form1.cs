@@ -297,21 +297,24 @@ namespace word_concatenation
 
         private void export_btn_Click(object sender, EventArgs e)
         {
+            this.export("total", "markers"); 
+        }
 
+        private void export(string col_index, string file)
+        {
             ExcellObj.Application exApp = new ExcellObj.Application();
             exApp.Workbooks.Add();
             ExcellObj.Worksheet workSheet = (ExcellObj.Worksheet)exApp.ActiveSheet;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                string val = dataGridView1["total", i].Value.ToString();
-                workSheet.Cells[i+1, 1] = val;
+                string val = dataGridView1[col_index, i].Value.ToString();
+                workSheet.Cells[i + 1, 1] = val;
             }
-       
-           
-            string pathToFile = Environment.CurrentDirectory + "\\" + "markers.xls";
+
+
+            string pathToFile = Environment.CurrentDirectory + "\\" + file + ".xls";
             workSheet.SaveAs(pathToFile);
             exApp.Quit();
-         
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -375,6 +378,11 @@ namespace word_concatenation
                 }
                 dataGridView1["total_two", i].Value = collections[i];
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.export("total_two", "markers_contruct_two");
         }
     }
 
