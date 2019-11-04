@@ -249,7 +249,11 @@ namespace word_concatenation
                                 this.Text = "Парсинг: " + value;
                                 dataGridView1["synonyms", Rnum - start].Value = SynomymsParse.GetWord(value, pluralToOne.Checked);
                                 if(cbx_ping.Checked)
-                                    Thread.Sleep(1000);
+                                {
+                                    Random rnd = new Random();
+                                    Thread.Sleep(rnd.Next(1000, 3000));
+                                }
+                                    
                             }
                         }
                         empty_count++;
