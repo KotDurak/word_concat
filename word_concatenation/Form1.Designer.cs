@@ -49,6 +49,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.pluralToOne = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -113,6 +114,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pluralToOne);
             this.groupBox1.Controls.Add(this.cbx_ping);
             this.groupBox1.Controls.Add(this.first_column_import);
             this.groupBox1.Controls.Add(this.label1);
@@ -284,6 +286,16 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Конструкция 1";
             // 
+            // pluralToOne
+            // 
+            this.pluralToOne.AutoSize = true;
+            this.pluralToOne.Location = new System.Drawing.Point(262, 72);
+            this.pluralToOne.Name = "pluralToOne";
+            this.pluralToOne.Size = new System.Drawing.Size(96, 17);
+            this.pluralToOne.TabIndex = 6;
+            this.pluralToOne.Text = "Множ. в ед .ч.";
+            this.pluralToOne.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,6 +345,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckBox pluralToOne;
     }
 }
 

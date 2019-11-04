@@ -71,6 +71,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleRow.cs" />
     <Compile Include="services\ConstructService.cs" />
+    <Compile Include="services\PluralToOne.cs" />
     <Compile Include="SynomymsParse.cs" />
     <EmbeddedResource Include="AddColumnForm.resx">
       <DependentUpon>AddColumnForm.cs</DependentUpon>

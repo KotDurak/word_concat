@@ -7,16 +7,55 @@ using HtmlAgilityPack;
 using System.Net;
 using System.IO;
 using System.Threading;
+using System.Text.RegularExpressions;
+using word_concatenation.services;
 
 namespace word_concatenation
 {
      class SynomymsParse
     {
-        public static string GetWord(string word)
+        public static string GetWord(string word, bool toOne)
         {
+
             try
             {
+                string ending = word.Substring(word.Length - 2);
+
                 string result = "";
+
+                bool isPlural = ending == "ие" || ending == "ые";
+                if (isPlural && toOne)
+                {
+                    string[] wordsArray = PluralToOne.getOne(word);
+                    string synonimsLine = "";
+                    foreach(string w in wordsArray)
+                    {
+                        try
+                        {
+                            string href = @"https://text.ru/synonym/" + w;
+                            var pc = SynomymsParse.LoadPage(href);
+                            var doc = new HtmlDocument();
+                            doc.LoadHtml(pc);
+                            HtmlNodeCollection wds = doc.DocumentNode.SelectNodes("//table[@id='table_list_synonym']//td[@class='ta-l']/a");
+                            int j = 0;
+                            foreach (HtmlNode elem in wds)
+                            {
+                                j++;
+                                synonimsLine += " +" + elem.InnerText + " |"; 
+                            }
+                        }
+                        catch
+                        {
+                            continue;
+                        }
+                    }
+                    if (synonimsLine.Length != 0)
+                    {
+                        synonimsLine = synonimsLine.Trim('|');
+                        return "(+" + word + " |" + synonimsLine;
+                    }
+                }
+
                 word = word.Trim();
                 string url = @"https://text.ru/synonym/" + word;
                 var pageContent = SynomymsParse.LoadPage(url);
@@ -44,12 +83,12 @@ namespace word_concatenation
                 }
                 result += ")";
                 return result;
-            }
-            catch (Exception)
+            } 
+            catch(Exception)
             {
-                return "(+" + word + ")";
+                return "(" + word + ")";
             }
-            
+         
             
             
         }
