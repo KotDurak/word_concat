@@ -26,7 +26,8 @@ namespace word_concatenation
                 bool isPlural = ending == "ие" || ending == "ые";
                 if (isPlural && toOne)
                 {
-                    string[] wordsArray = PluralToOne.getOne(word);
+                    Queue<string> wordsArray = PluralToOne.getOne(word);
+                   
                     string synonimsLine = "";
                     foreach(string w in wordsArray)
                     {
@@ -52,7 +53,12 @@ namespace word_concatenation
                     if (synonimsLine.Length != 0)
                     {
                         synonimsLine = synonimsLine.Trim('|');
-                        return "(+" + word + " |" + synonimsLine;
+                        string variants = String.Join(" | +", wordsArray); 
+                        foreach (string w in wordsArray)
+                        {
+                            
+                        }
+                        return "(+" + variants + " |" + synonimsLine + ")";
                     }
                 }
 

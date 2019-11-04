@@ -10,14 +10,15 @@ namespace word_concatenation.services
     {
         public static string[] endings = {"ий", "ый", "ой"};
 
-        public static string[] getOne(string word)
+        public static Queue<string> getOne(string word)
         {
-            string[] words = new string[endings.Length];
-           
-                for (int i = 0; i < endings.Length; i++)
-                {
-                    words[i] = word.Remove(word.Length - endings[i].Length, endings[i].Length) + endings[i];
-                }
+            Queue<string> words = new Queue<string>();
+            words.Enqueue(word);
+          
+            for (int i = 0; i < endings.Length; i++)
+            {
+                words.Enqueue(word.Remove(word.Length - endings[i].Length, endings[i].Length) + endings[i]);
+            }
           
             return words;
         }
